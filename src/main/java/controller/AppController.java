@@ -26,7 +26,11 @@ public class AppController {
             t = new model.Income(amount, category, date);
         } else if (type.equalsIgnoreCase("expense")){
             t = new model.Expense(amount, category, date);
+        } else{
+            System.out.println("invalid type: mmust be 'income' or 'expense'");
+            return;
         }
+        budgetManager.addTransaction(t);
     }
 
     public List<Transaction> viewAllTransactions() {
